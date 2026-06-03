@@ -1,221 +1,51 @@
 ---
-
-layout: slide
-title: Solución Estratificada de Problemas en TIC
-description: Virtualización por Interpretación Pura, Recompilación Dinámica e Hipervisión Bare Metal
-theme: white
-transition: slide
------------------
-
-# Solución Estratificada de Problemas en TIC
-
-### Virtualización por Interpretación Pura, Recompilación Dinámica e Hipervisión (Bare Metal)
-
-**Nombre del Estudiante**
-
+layout: compress
 ---
-
-# Introducción
-
-## ¿Qué es la solución estratificada de problemas en TIC?
-
-Es un enfoque que divide un sistema en capas o niveles para facilitar el análisis, diseño, implementación y resolución de problemas tecnológicos.
-
-### Beneficios
-
-* Organización de sistemas complejos.
-* Facilita el mantenimiento.
-* Reduce la complejidad.
-* Permite reutilizar componentes.
-
----
-
-# Capas de una Solución TIC
-
-## Estratificación típica
-
-1. Usuarios
-2. Aplicaciones
-3. Sistema Operativo
-4. Virtualización
-5. Hardware
-
-Cada capa proporciona servicios a la capa superior y utiliza los recursos de la capa inferior.
-
----
-
-# Virtualización por Interpretación Pura
-
-## Descripción
-
-La máquina virtual interpreta cada instrucción del sistema invitado y la ejecuta en el sistema anfitrión.
-
-### Características
-
-* Alta compatibilidad.
-* Fácil implementación.
-* No requiere modificar el sistema invitado.
-* Bajo rendimiento comparado con otras técnicas.
-
-### Casos de Uso
-
-* Emulación de hardware.
-* Sistemas heredados.
-* Laboratorios académicos.
-
-### Ejemplos
-
-* Bochs
-* QEMU (modo emulación)
-
----
-
-# Funcionamiento de la Interpretación Pura
-
-```text
-Sistema Invitado
-       ↓
-   Intérprete
-       ↓
-Hardware Anfitrión
-```
-
-Cada instrucción es analizada y ejecutada individualmente.
-
-### Ventajas
-
-* Compatibilidad máxima.
-
-### Desventajas
-
-* Alto consumo de CPU.
-* Menor rendimiento.
-
----
-
-# Virtualización por Recompilación Dinámica
-
-## Descripción
-
-Las instrucciones del sistema invitado son traducidas en bloques optimizados que pueden reutilizarse posteriormente.
-
-### Características
-
-* Mayor velocidad que la interpretación pura.
-* Traducción por bloques.
-* Reutilización de código traducido.
-
-### Casos de Uso
-
-* Emulación eficiente.
-* Compatibilidad entre arquitecturas.
-* Desarrollo y pruebas.
-
-### Ejemplos
-
-* QEMU con Dynamic Binary Translation.
-* Primeras versiones de VMware.
-
----
-
-# Funcionamiento de la Recompilación Dinámica
-
-```text
-Sistema Invitado
-        ↓
-Traductor Dinámico
-        ↓
- Código Optimizado
-        ↓
- Hardware
-```
-
-### Ventajas
-
-* Mejor rendimiento.
-* Menor cantidad de traducciones repetidas.
-
-### Desventajas
-
-* Mayor complejidad de implementación.
-
----
-
-# Virtualización por Hipervisión (Bare Metal)
-
-## Descripción
-
-El hipervisor se ejecuta directamente sobre el hardware físico sin depender de un sistema operativo anfitrión.
-
-### Características
-
-* Alto rendimiento.
-* Mayor seguridad.
-* Administración centralizada.
-* Excelente escalabilidad.
-
-### Casos de Uso
-
-* Centros de datos.
-* Computación en la nube.
-* Servidores empresariales.
-
-### Ejemplos
-
-* VMware ESXi
-* Microsoft Hyper-V Server
-* Xen Hypervisor
-* Citrix Hypervisor
-
----
-
-# Funcionamiento del Hipervisor Bare Metal
-
-```text
-Máquinas Virtuales
-        ↓
-     Hipervisor
-        ↓
-      Hardware
-```
-
-### Ventajas
-
-* Máximo aprovechamiento de recursos.
-* Menor sobrecarga.
-
-### Desventajas
-
-* Implementación más compleja.
-
----
-
-# Comparación de Tecnologías
-
-| Característica  | Interpretación Pura | Recompilación Dinámica | Bare Metal |
-| --------------- | ------------------- | ---------------------- | ---------- |
-| Rendimiento     | Bajo                | Medio-Alto             | Muy Alto   |
-| Compatibilidad  | Muy Alta            | Alta                   | Alta       |
-| Complejidad     | Baja                | Media                  | Alta       |
-| Uso Empresarial | Bajo                | Medio                  | Alto       |
-
----
-
-# Conclusiones
-
-* La virtualización optimiza el uso de recursos computacionales.
-* La interpretación pura prioriza compatibilidad.
-* La recompilación dinámica mejora significativamente el rendimiento.
-* Los hipervisores Bare Metal son la opción preferida en ambientes empresariales y de nube.
-
----
-
-# Referencias
-
-* VMware Documentation
-* Microsoft Learn
-* QEMU Documentation
-* Bochs Documentation
-* Material de la asignatura
-
-# Gracias
+<!doctype html>
+<html>
+   <head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+    
+        <meta name="description" content="{{ site.description }}">
+         <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+
+		<link rel="stylesheet" href="{{site.baseurl}}/css/home.css">
+        
+		    <!-- Favicon -->
+<link rel="shortcut icon" type="image/x-icon" href="{{site.baseurl}}/favicon.ico" />
+	</head>
+   
+    <body>
+       <header>
+           <a href="{{site.baseurl}}"><div class="brand"><img class="logo" src="{{site.baseurl}}/images/webjeda-slides.svg" alt="webjeda-slides">
+           <h1 class="headline">{{site.title}}</h1></div></a>
+       </header>
+       
+
+       
+       
+        <div class="pack">
+ 
+ <p class="head-text">What if you can manage all your presentations from one place?!</p>
+ 
+{% for post in site.posts %}                              
+                               
+    <a target="_blank" class="link" href="{{site.baseurl}}{{post.url}}"> 
+       
+        <div class="card" style="background-color: {% cycle '#e74c3c', '#1abc9c', '#e67e22', '#34495e', '#f1c40f', '#3498db', '#2ecc71', '#9b59b6' %}" >
+           <div class="card-number">
+               {{forloop.rindex}}
+           </div>
+            <div class="card-title">
+                {{ post.title | truncate: 13 }}
+            </div>
+        </div>
+    </a>
+          
+{% endfor %}
+        </div>
+         {% include analytics.html %}
+    </body>
+</html>
